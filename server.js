@@ -25,7 +25,9 @@ app.use(bodyParser.json({limit:'2mb'}));
 app.use(cors());
 app.use(express.json())
 //routes middleware 
-
+app.get('/', (req, res) =>{
+    res.send('welcome to the heroku')
+})
 
 app.use('/api/auth',authRouter)
 app.use('/api/user', userRouter)
