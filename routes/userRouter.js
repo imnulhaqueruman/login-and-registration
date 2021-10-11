@@ -2,6 +2,7 @@ const express = require('express')
 const {User} = require('../models/user')
 const bcrypt = require('bcrypt');
 const router = express.Router();
+const{authCheck} = require('../middlewares/authorize')
 
 const newUser = async (req,res) =>{
     let user = await User.findOne({email : req.body.email});
@@ -38,5 +39,8 @@ const newUser = async (req,res) =>{
 }
 
 router.post('/',newUser);
+router.get('/dashboard', authCheck,(req,res) =>{
+    res.send(req.user)
+})
 
 module.exports = router

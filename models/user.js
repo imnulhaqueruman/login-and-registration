@@ -23,7 +23,7 @@ const userSchema = Schema({
 });
 
 userSchema.methods.generateJWT = function () {
-    const token = jwt.sign({ _id: this._id, email: this.email }, process.env.mySecretKey);
+    const token = jwt.sign({ _id: this._id, email: this.email, name:this.name}, process.env.mySecretKey);
     return token;
 }
 const User = model('User', userSchema)

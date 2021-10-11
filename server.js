@@ -7,6 +7,7 @@ const cors = require('cors')
 require('dotenv').config()
 const authRouter = require('./routes/authRouter')
 const userRouter = require('./routes/userRouter')
+const user = require('./routes/user')
 
 // app 
 const app = express()
@@ -28,6 +29,7 @@ app.use(express.json())
 
 app.use('/api/auth',authRouter)
 app.use('/api/user', userRouter)
+app.use('/api/dashboard',user)
 
 
 app.listen(port, () =>{
