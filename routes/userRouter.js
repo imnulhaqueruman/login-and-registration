@@ -35,6 +35,7 @@ const newUser = async (req,res) =>{
         }
         return res.status(400).send(errMsgs);
     }
+    res.json({ status: 'ok' })
     
 }
 
